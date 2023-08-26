@@ -1,0 +1,16 @@
+class Solution:
+    def isValid(self, s):
+        stack = []
+
+        openingList = ['(', '[', '{']
+        closingList = [')',']','}']
+        if len(s)&1:
+            return False
+
+        for bracket in s:
+            if bracket in openingList:
+                stack.append(bracket)
+            elif (len(stack)==0
+                  or stack.pop()!=openingList[closingList.index(bracket)]):
+                return False
+        return len(stack) == 0
