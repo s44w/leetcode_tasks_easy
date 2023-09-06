@@ -1,0 +1,18 @@
+class Solution:
+    def isPalindrome(self, s):
+        lowerS = s.lower()
+        resultS = ''
+        for char in lowerS:
+            if char.islower() or char.isdigit():
+                resultS+=char
+
+        beginPtr = 0
+        endPtr = len(resultS)-1
+
+        while beginPtr<endPtr:
+            if resultS[beginPtr]!=resultS[endPtr]:
+                return False
+            beginPtr+=1
+            endPtr-=1
+        #print(resultS)
+        return True
